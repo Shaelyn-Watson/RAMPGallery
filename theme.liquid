@@ -169,8 +169,8 @@
     <!--START CONTAINER-->
     <div class="container lower">
       <div class="sixteen columns">
-        <div class="table logo-tagline">
-          <div class="table-cell">
+        <center>
+          <div class="row">
             <h1 id="logo">
               <a href="/">
                 {% if settings.use_logo %}
@@ -181,10 +181,11 @@
               </a>
             </h1>
           </div>
-
-          <div class="table-cell">
-            <div id="tagline" class="desktop">
-              <h3>
+      </center>
+          <center>
+          <div class="row">
+            <div class="desktop">
+              <h2>
               {% if settings.show_tagline %}
                 {% if settings.tagline == blank %}
                 {{ 'layout.onboarding.tagline_text' | t }}
@@ -192,10 +193,10 @@
                 {{ settings.tagline }}
                 {% endif %}
               {% endif %}
-              </h3>
+              </h2>
             </div>
           </div>
-        </div>
+        </center>
       </div>
     </div>
 
