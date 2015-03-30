@@ -209,7 +209,7 @@
       <nav>
         <a href="#" id="toggle-menu" class="mobile"><span>{{ 'layout.general.menu_title' | t }}</span></a>
     <!--Desktop Menu -->
-        <ul id="main-menu" class="accordion desktop">
+        <ul id="main-menu" class="accordion" style="width: 45%;">
           {% for link in linklists.main-menu.links %}         
             {% assign has_sub_menu = false %}
             {% assign parent_link_active = false %}
