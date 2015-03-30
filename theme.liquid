@@ -232,8 +232,11 @@
                 {% endfor %}
               </div>
             </li>              
-            {% else %}             
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% else %}
+        
+      <!-- web browser -->
+            <li style="float: left;"><a href="{{ link.url }}">{{ link.title }}</a></li>
+          
             {% endif %}
           {% endfor %}
           {% if shop.customer_accounts_enabled %}
