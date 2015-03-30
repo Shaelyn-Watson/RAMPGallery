@@ -184,7 +184,7 @@
       </center>
           <center>
           <div class="row">
-            <div class="desktop">
+            
               <h2>
               {% if settings.show_tagline %}
                 {% if settings.tagline == blank %}
@@ -194,7 +194,7 @@
                 {% endif %}
               {% endif %}
               </h2>
-            </div>
+            
           </div>
         </center>
       </div>
@@ -205,10 +205,11 @@
   <!--START CONTAINER-->
   <div class="container">
     <!--START SIDEBAR-->
-    <div id="sidebar" class="three columns">
+    <div id="sidebar">
       <nav>
         <a href="#" id="toggle-menu" class="mobile"><span>{{ 'layout.general.menu_title' | t }}</span></a>
-        <ul id="main-menu" class="accordion">
+    <!--Desktop Menu -->
+        <ul id="main-menu" class="accordion desktop">
           {% for link in linklists.main-menu.links %}         
             {% assign has_sub_menu = false %}
             {% assign parent_link_active = false %}
@@ -221,20 +222,7 @@
                 {% endif %}
               {% endfor %}
             {% endif %}              
-            {% if has_sub_menu %}               
-            <li>    
-              <a href="#" class="accordion-button">{{ link.title }}
-                <span>{% if link.active or parent_link_active  %}-{% else %}+{% endif %}</span>
-              </a>
-              <div class="accordion-content" {% unless parent_link_active %}style="display:none"{% endunless %} >
-                {% for l in linklists[child_list_handle].links %}
-                  <a href="{{ l.url }}" {% if l.active %}class="active"{% endif %}>{{ l.title }} </a>
-                {% endfor %}
-              </div>
-            </li>              
-            {% else %}             
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endif %}
           {% endfor %}
           {% if shop.customer_accounts_enabled %}
             {% if customer %}
@@ -247,17 +235,18 @@
             {% endif %}
             {% endif %}
           {% endif %}
+          <div id="social">
+            {% if settings.facebook_url != blank %}<a href="{{ settings.facebook_url }}" target="_blank" class="facebook {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
+            {% if settings.twitter_url != blank  %}<a href="{{ settings.twitter_url }}" target="_blank" class="twitter {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
+            {% if settings.instagram_url != blank  %}<a href="{{ settings.instagram_url }}" target="_blank" class="instagram {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
+            {% if settings.pinterest_url != blank  %}<a href="{{ settings.pinterest_url }}" target="_blank" class="pinterest {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
+            {% if settings.youtube_url != blank  %}<a href="{{ settings.youtube_url }}" target="_blank" class="youtube {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
+            {% if settings.vimeo_url != blank  %}<a href="{{ settings.vimeo_url }}" target="_blank" class="vimeo {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
+            {% if settings.flickr_url != blank  %}<a href="{{ settings.flickr_url }}" target="_blank" class="flickr {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
+            {% if settings.show_rss == true %}<a href="/blogs/{{ settings.main_blog }}.atom" target="_blank" class="rss {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
+          </div>
         </ul>
-        <div id="social">
-          {% if settings.facebook_url != blank %}<a href="{{ settings.facebook_url }}" target="_blank" class="facebook {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
-          {% if settings.twitter_url != blank  %}<a href="{{ settings.twitter_url }}" target="_blank" class="twitter {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
-          {% if settings.instagram_url != blank  %}<a href="{{ settings.instagram_url }}" target="_blank" class="instagram {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
-          {% if settings.pinterest_url != blank  %}<a href="{{ settings.pinterest_url }}" target="_blank" class="pinterest {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
-          {% if settings.youtube_url != blank  %}<a href="{{ settings.youtube_url }}" target="_blank" class="youtube {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
-          {% if settings.vimeo_url != blank  %}<a href="{{ settings.vimeo_url }}" target="_blank" class="vimeo {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
-          {% if settings.flickr_url != blank  %}<a href="{{ settings.flickr_url }}" target="_blank" class="flickr {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
-          {% if settings.show_rss == true %}<a href="/blogs/{{ settings.main_blog }}.atom" target="_blank" class="rss {% if settings.light_social_icons %}light{% endif %}"></a>{% endif %}
-        </div>
+      <!--End Desktop Menu -->
       </nav>
     </div>
     <!--END SIDEBAR-->
