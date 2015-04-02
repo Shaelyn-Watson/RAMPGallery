@@ -260,12 +260,12 @@
           {% for product in collection.products %}
             <!--Poster Card -->
             <div class="three columns ">
-              <a href="{{ product.url }}" id="product-2" class="animated fadeInUpBig">
+              <a href="{{ product.url }}" id="{{ product.id }}" class="animated fadeInUpBig">
 
 
-                <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="Cave Singers with My Goodness. Doug Fir - Portland, Oregon c. 2011" class="product">
-                <h3>Cave Singers with My Goodness. Doug Fir - Portland, Oregon c. 2011</h3>
-                <h4>{{product.price}}</h4>
+                <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
+                <h3>{{ product.title }}</h3>
+                <h4>{{ product.price | money }}</h4>
               </a>
             </div>
           {% endfor %}
