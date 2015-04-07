@@ -251,18 +251,16 @@
     </div>
     <!--END SIDEBAR-->
     <!--START MAIN-->
-    <div id="main" class="twelve columns offset-by-two">
+    <center>
+    <div id="main">
       <div id="page-content">
-<!--         {{content_for_layout}} -->
-       <!--START PRODUCT GRID-->
-      <section class="product-grid sixteen columns alpha omega">
+        <!--START PRODUCT GRID-->
+      <section class="product-grid sixteen columns">
         {% if collection.products.size > 0 %}
           {% for product in collection.products %}
             <!--Poster Card -->
             <div class="three columns ">
               <a href="{{ product.url }}" id="{{ product.id }}" class="animated fadeInUpBig">
-
-
                 <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
                 <h3>{{ product.title }}</h3>
                 <h4>{{ product.price | money }}</h4>
@@ -273,10 +271,13 @@
           <p id="no-products" class="animated fadeInUpBig">{{ 'collections.general.empty_collection_message' | t }}</p>
         {% endif %}
       </section>
+    
       <!--END PRODUCT GRID-->
+<!--         {{content_for_layout}} -->
       <br class="clear">
       </div>
     </div>
+      </center>
     <!--END MAIN-->
     <br class="clear">
     <!--START FOOTER-->
