@@ -259,7 +259,7 @@
         {% if collection.products.size > 0 %}
           {% for product in collection.products %}
             <!--Poster Card -->
-            <div class="three columns ">
+            <div class="three columns" style="height: 450px;">
               <a href="{{ product.url }}" id="{{ product.id }}" class="animated fadeInUpBig">
                 <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
                 <h3>{{ product.title }}</h3>
