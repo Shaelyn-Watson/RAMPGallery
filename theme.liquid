@@ -123,7 +123,7 @@
     <!--START CONTAINER-->
     <div class="container upper">
       <!--START SIDEBAR-->
-      <div class="three columns product-search-wrapper">
+      <div class="product-search-wrapper">
         <div id="product-search">
           <form action="/search" method="get" class="search-form" role="search">
             <input type="hidden" name="type" value="product" />
@@ -259,7 +259,7 @@
         {% if collection.products.size > 0 %}
           {% for product in collection.products %}
             <!--Poster Card -->
-            <div class="three columns" style="height: 450px;">
+            <div class="three columns">
               <a href="{{ product.url }}" id="{{ product.id }}" class="animated fadeInUpBig">
                 <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
                 <h3>{{ product.title }}</h3>
@@ -268,7 +268,7 @@
             </div>
           {% endfor %}
         {% else %}
-        <center>{{content_for_layout}}</center>
+          <div>{{content_for_layout}}</div>
         {% endif %}
       </section>
     
