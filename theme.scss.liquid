@@ -789,9 +789,24 @@ $heading-color: {{ settings.heading_color }};
   iframe {
     max-width: 100%;
   }
+  pcard{
+  height: 650px;
+    @media (min-width: 992px){
+      height: 650px;
+    }
+    @media (min-width: 768px) and (max-width: 992px){
+      height: 650px;
+    }
+  }
   div#main div#page-content {
 /*     border-top: 1px solid {{ settings.lighter_color }}; */
     overflow: hidden;
+    @media (min-width: 992px){
+      margin: 0 3em;
+    }
+    @media (min-width: 768px) and (max-width: 992px){
+      margin: 0 1em;
+    }
   }
   .mobile {
     display: none;
