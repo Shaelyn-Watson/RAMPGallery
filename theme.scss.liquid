@@ -316,16 +316,25 @@ $heading-color: {{ settings.heading_color }};
       /* Base Grid */
       .container .one.column,
       .container .one.columns                     { width: 40px;  }
-      .container .two.columns                     { width: 100px; }
+    
+      /*Responsive Product Spacing */
+      .container .two.columns                     { width: 14% !important;
+                                                    @media (max-width: 768px) {
+                                                        height: 45em;
+                                                    }
+                                                    @media (min-width: 1200px) {
+                                                        height: 45em;
+                                                    }
+                              }
+
       .container .three.columns                   { width: 22% !important;
-                          /*responsive product spacing */
-                                                  @media (max-width: 768px) {
-                                                      height: 45em;
+                                                    @media (max-width: 768px) {
+                                                        height: 45em;
+                                                    }
+                                                    @media (min-width: 1200px) {
+                                                        height: 45em;
+                                                    }
                                                   }
-                                          @media (min-width: 1200px) {
-                                                      height: 45em;
-                                                  }
-                                      }
       .container .four.columns                    { width: 220px; }
       .container .five.columns                    { width: 280px; }
       .container .six.columns                     { width: 340px; }

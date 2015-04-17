@@ -260,6 +260,19 @@
           {% for product in collections.highlighteddisplay.products %}
             <!--Poster Card -->
             <div class="three columns">
+              <a href="{{ product.url }}" id="{{ product.id }}" class="">
+                <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
+                <h3>{{ product.id }}</h3>
+                <h3>{{ product.title }}</h3>
+                <h4>{{ product.price | money }}</h4>
+              </a>
+            </div>
+          {% endfor %}
+         {% endif %}
+        {% if collections.frontpage.products.size > 0 %}
+          {% for product in collections.frontpage.products %}
+            <!--Poster Card -->
+            <div class="two columns">
               <a href="{{ product.url }}" id="{{ product.id }}" class="animated fadeInUpBig">
                 <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
                 <h3>{{ product.id }}</h3>
@@ -267,8 +280,8 @@
                 <h4>{{ product.price | money }}</h4>
               </a>
             </div>
-        
           {% endfor %}
+        {% else %}
         {% else %}
           <div>{{content_for_layout}}</div>
         {% endif %}
