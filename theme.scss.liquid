@@ -304,7 +304,7 @@ $heading-color: {{ settings.heading_color }};
   /* #Base 960 Grid
   ================================================== */
 
-      .container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
+      .container                                  { position: relative; width: auto; margin: 0 auto; padding: 0; }
       .container .column,
       .container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
       .row                                        { margin-bottom: 20px; }
@@ -317,7 +317,7 @@ $heading-color: {{ settings.heading_color }};
       .container .one.column,
       .container .one.columns                     { width: 40px;  }
       .container .two.columns                     { width: 100px; }
-      .container .three.columns                   { width: 160px;
+      .container .three.columns                   { width: 280px !important;
                           /*responsive product spacing */
                                                   @media (max-width: 768px) {
                                                       height: 45em;
@@ -660,7 +660,7 @@ $heading-color: {{ settings.heading_color }};
     .desktop {display:none !important;}
     .mobile  {display:block !important;}
     div#drawer form div.description div.info {width: 260px !important;}
-    header div.container.upper div.three.columns { width: 160px !important; padding-bottom: 0! important }
+    header div.container.upper div.three.columns { padding-bottom: 0! important }
     header div.container.upper div.five.columns { width: 220px !important; padding-left: 0 !important; padding-bottom: 0 !important; float: right; }
       header div.container.lower {padding-bottom: 0 !important;}
     header div#minicart{width: 220px;}
@@ -703,7 +703,7 @@ $heading-color: {{ settings.heading_color }};
     .desktop {display:none !important;}
     .mobile  {display:block !important;}
     div#drawer form div.description div.info {width: 150px !important;}
-    header div.container.upper div.three.columns { width: 160px !important; padding-bottom: 0! important }
+    header div.container.upper div.three.columns { padding-bottom: 0! important }
     header div.container.upper div.five.columns { width: 120px !important; padding-left: 0 !important; padding-bottom: 0 !important; float: right; }
     header div.container.lower {padding-bottom: 0 !important;}
     section#cart form div.row div.description div.info {width: 160px !important;}
