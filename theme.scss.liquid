@@ -304,7 +304,7 @@ $heading-color: {{ settings.heading_color }};
   /* #Base 960 Grid
   ================================================== */
 
-      .container                                  { position: relative; width: auto; margin: 0 auto; padding: 0; }
+      .container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
       .container .column,
       .container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
       .row                                        { margin-bottom: 20px; }
@@ -318,20 +318,24 @@ $heading-color: {{ settings.heading_color }};
       .container .one.columns                     { width: 40px;  }
     
       /*Responsive Product Spacing */
-      .container .two.columns                     { width: 14% !important;
+      .container .two.columns                     { 
                                                     @media (max-width: 768px) {
-                                                        height: 45em;
+                                                        width: auto !important;
+                                                        height: 50em;
                                                     }
                                                     @media (min-width: 1200px) {
+                                                        width: 14% !important;
                                                         height: 45em;
                                                     }
                               }
 
-      .container .three.columns                   { width: 22% !important;
+      .container .three.columns                   {
                                                     @media (max-width: 768px) {
-                                                        height: 45em;
+                                                        width: auto !important;
+                                                        height: 50em;
                                                     }
                                                     @media (min-width: 1200px) {
+                                                        width: 22% !important;
                                                         height: 45em;
                                                     }
                                                   }
