@@ -260,7 +260,7 @@
           {% for product in collections.highlighteddisplay.products %}
             <!--Poster Card -->
             <div class="three columns">
-              <a href="{{ product.url }}" id="{{ product.id }}" class="">
+              <a href="{{ product.url }}" id="{{ product.id }}" class="animated fadeInUpBig">
                 <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
                 <h3>{{ product.id }}</h3>
                 <h3>{{ product.title }}</h3>
