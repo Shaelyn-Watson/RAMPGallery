@@ -390,10 +390,16 @@ $heading-color: {{ settings.heading_color }};
 
           .container .one.column,
           .container .one.columns                     { width: 28px; }
-          .container .two.columns                     { width: 76px; }
-          .container .three.columns                   { width: 124px;
-                        /*responsive product spacing */
-                                  height: 30em;}
+          /*Responsive Product Spacing */
+          .container .two.columns                     { 
+                                  width: 13% !important;
+                                                        height: 35em; 
+                                                      }
+
+          .container .three.columns                   { margin-top:  1em;
+                                  width: 22% !important;
+                                                        height: 40em;
+                                                      }
           .container .four.columns                    { width: 172px; }
           .container .five.columns                    { width: 220px; }
           .container .six.columns                     { width: 268px; }
