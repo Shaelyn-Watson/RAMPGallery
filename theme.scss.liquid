@@ -323,6 +323,10 @@ $heading-color: {{ settings.heading_color }};
                                                         width: auto !important;
                                                         height: 50em;
                                                     }
+                              @media (min-width : 769px) and (max-width : 1199px){
+                                                        width: 14% !important;
+                                                        height: 45em;
+                                                    }
                                                     @media (min-width: 1200px) {
                                                         width: 14% !important;
                                                         height: 45em;
@@ -333,6 +337,10 @@ $heading-color: {{ settings.heading_color }};
                                                     @media (max-width: 768px) {
                                                         width: auto !important;
                                                         height: 48em;
+                                                    }
+                              @media (min-width : 769px) and (max-width : 1199px){
+                                                        width: 22% !important;
+                                                        height: 45em;
                                                     }
                                                     @media (min-width: 1200px) {
                                                         width: 22% !important;
@@ -379,6 +387,7 @@ $heading-color: {{ settings.heading_color }};
   ================================================== */
 
       /* Note: Design for a width of 768px */
+    
 
       @media only screen and (min-width: 768px) and (max-width: 959px) {
           .container                                  { width: 768px; }
@@ -434,7 +443,6 @@ $heading-color: {{ settings.heading_color }};
           .container .offset-by-fourteen              { padding-left: 672px; }
           .container .offset-by-fifteen               { padding-left: 720px; }
       }
-
 
   /*  #Mobile (Portrait)
   ================================================== */
@@ -586,7 +594,7 @@ $heading-color: {{ settings.heading_color }};
       .row:after {
         content: '\0020';
         display: block;
-        overflow: hidden;
+        //overflow: hidden;
         visibility: hidden;
         width: 0;
         height: 0; }
@@ -820,7 +828,7 @@ $heading-color: {{ settings.heading_color }};
   }
   div#main div#page-content {
 /*     border-top: 1px solid {{ settings.lighter_color }}; */
-    overflow: hidden;
+    
     @media (min-width: 992px){
       margin: 0 3em;
     }
@@ -1618,7 +1626,7 @@ $heading-color: {{ settings.heading_color }};
   }
   /* @group Animation Framework */
   section.product-grid div.columns {
-    overflow: hidden;
+    //overflow: hidden;
   }
   .animated {
     -webkit-animation-fill-mode: both;
@@ -1697,7 +1705,7 @@ $heading-color: {{ settings.heading_color }};
   /* @group Product Animations  */
   /* Supports up to 30 products in the grid (10x3) */
   section.product-grid div.columns.columns {
-    overflow: hidden;
+    
   }
   section.product-grid div.columns a#product-1 {
     -webkit-animation-delay: 0.1s;
