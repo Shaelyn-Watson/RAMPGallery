@@ -661,7 +661,7 @@ $heading-color: {{ settings.heading_color }};
     header { border-top:0px!important; padding:0!important;}
     .container.upper { position: relative; padding-top:10px!important; background: {{ settings.background_color }}; width:100%; z-index:99}
     .product-search-wrapper { padding-left:15px; }
-    .minicart-wrapper { padding-right:15px;}
+    .minicart-wrapper { margin:0 15px !important;}
     footer div#payment-methods { text-align: center}
     header nav a {margin-right: 5px !important;}
     header div#minicart {width: 210px;}
@@ -1163,7 +1163,7 @@ $heading-color: {{ settings.heading_color }};
     background: url({{ 'sprite.png' | asset_url }}) -32px -149px no-repeat;
   }
   header div.container.upper div#minicart a.checkout {
-    padding-left: 20px;
+    padding: 0 20px;
     text-decoration: none;
   }
   header div.container.upper div#minicart a.checkout span.drawer-icon {

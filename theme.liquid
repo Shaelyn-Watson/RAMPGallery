@@ -125,37 +125,18 @@
       <!--START SIDEBAR-->
       <div class="product-search-wrapper">
         <div id="product-search">
-          <form action="/search" method="get" class="search-form" role="search">
+          <form action="/search" method="get" class="search-form" role="search" style="margin: 0 15px;">
             <input type="hidden" name="type" value="product" />
-            <input type="submit" id="search-submit" class="icon {% if settings.light_search_icon %}light{% endif %}" />
+            <input type="submit" id="search-submit" class="icon light"/>
             <input class="search" placeholder="{{ 'general.search.search_form_submit' | t }}" name="q" type="text" id="search-field"  />
           </form>
           <br class="clear">
         </div>
       </div>
       <!--END SIDEBAR-->
-      <!--START TOP NAV-->
-      <div class="seven columns offset-by-one desktop">
-        <nav>
-          {% for link in linklists[settings.secondary_menu].links %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-          {% endfor %}
-          {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-              <a href="/account">{{ 'customer.account.your_account' | t }}</a> 
-              {{ 'customer.account.log_out' | t | customer_logout_link }}
-            {% else %}
-              {{ 'customer.account.log_in' | t | customer_login_link }} 
-              {% if shop.customer_accounts_optional %}
-                {{ 'customer.account.create_account' | t | customer_register_link }}
-              {% endif %}
-            {% endif %}
-          {% endif %}
-        </nav>
-      </div>
-      <!--END TOP NAV-->
+      
       <!--START MINICART-->
-      <div class="five columns minicart-wrapper">
+      <div class="minicart-wrapper">
         <div id="minicart">
           <a href="#" class="toggle-drawer cart desktop {% if settings.light_cart_icon %}light{% endif %}">{{ 'layout.general.header_cart_title' | t }}<span id="cart-target-desktop" class="count cart-target"> ({{ cart.item_count }})</span></a>
           <a href="/cart" class="cart mobile {% if settings.light_cart_icon %}light{% endif %} cart-target">{{ 'layout.general.header_cart_title' | t }}<span id="cart-target-mobile" class="count cart-target"> ({{ cart.item_count }})</span></a>
