@@ -306,7 +306,7 @@ $heading-color: {{ settings.heading_color }};
 
       .container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
       .container .column,
-      .container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+      .container .columns                         { float: left; display: inline; margin-left: 1% !important; margin-right: 1% !important; }
       .row                                        { margin-bottom: 20px; }
 
       /* Nested Column Classes */
@@ -316,8 +316,37 @@ $heading-color: {{ settings.heading_color }};
       /* Base Grid */
       .container .one.column,
       .container .one.columns                     { width: 40px;  }
-      .container .two.columns                     { width: 100px; }
-      .container .three.columns                   { width: 160px; }
+    
+      /*Responsive Product Spacing */
+      .container .two.columns                     { 
+                                                    @media (max-width: 768px) {
+                                                        width: 90% !important;
+                                                        height: auto;
+                                                    }
+                              @media (min-width : 769px) and (max-width : 1199px){
+                                                        width: 14% !important;
+                                                        height: 35em;
+                                                    }
+                                                    @media (min-width: 1200px) {
+                                                        width: 14% !important;
+                                                        height: 38em;
+                                                    }
+                              }
+
+      .container .three.columns                   { margin-top:  1em;
+                                                    @media (max-width: 768px) {
+                                                        width: 90% !important;
+                                                        height: auto;
+                                                    }
+                              @media (min-width : 769px) and (max-width : 1199px){
+                                                        width: 22% !important;
+                                                        height: 42em;
+                                                    }
+                                                    @media (min-width: 1200px) {
+                                                        width: 22% !important;
+                                                        height: 48em;
+                                                    }
+                                                  }
       .container .four.columns                    { width: 220px; }
       .container .five.columns                    { width: 280px; }
       .container .six.columns                     { width: 340px; }
@@ -358,6 +387,7 @@ $heading-color: {{ settings.heading_color }};
   ================================================== */
 
       /* Note: Design for a width of 768px */
+    
 
       @media only screen and (min-width: 768px) and (max-width: 959px) {
           .container                                  { width: 768px; }
@@ -369,8 +399,16 @@ $heading-color: {{ settings.heading_color }};
 
           .container .one.column,
           .container .one.columns                     { width: 28px; }
-          .container .two.columns                     { width: 76px; }
-          .container .three.columns                   { width: 124px; }
+          /*Responsive Product Spacing */
+          .container .two.columns                     { 
+                                  width: 13% !important;
+                                                        height: 35em; 
+                                                      }
+
+          .container .three.columns                   { margin-top:  1em;
+                                  width: 22% !important;
+                                                        height: 40em;
+                                                      }
           .container .four.columns                    { width: 172px; }
           .container .five.columns                    { width: 220px; }
           .container .six.columns                     { width: 268px; }
@@ -405,7 +443,6 @@ $heading-color: {{ settings.heading_color }};
           .container .offset-by-fourteen              { padding-left: 672px; }
           .container .offset-by-fifteen               { padding-left: 720px; }
       }
-
 
   /*  #Mobile (Portrait)
   ================================================== */
@@ -557,7 +594,7 @@ $heading-color: {{ settings.heading_color }};
       .row:after {
         content: '\0020';
         display: block;
-        overflow: hidden;
+        //overflow: hidden;
         visibility: hidden;
         width: 0;
         height: 0; }
@@ -624,7 +661,7 @@ $heading-color: {{ settings.heading_color }};
     header { border-top:0px!important; padding:0!important;}
     .container.upper { position: relative; padding-top:10px!important; background: {{ settings.background_color }}; width:100%; z-index:99}
     .product-search-wrapper { padding-left:15px; }
-    .minicart-wrapper { padding-right:15px;}
+    .minicart-wrapper { margin:0 15px !important;}
     footer div#payment-methods { text-align: center}
     header nav a {margin-right: 5px !important;}
     header div#minicart {width: 210px;}
@@ -650,7 +687,7 @@ $heading-color: {{ settings.heading_color }};
     .desktop {display:none !important;}
     .mobile  {display:block !important;}
     div#drawer form div.description div.info {width: 260px !important;}
-    header div.container.upper div.three.columns { width: 160px !important; padding-bottom: 0! important }
+    header div.container.upper div.three.columns { padding-bottom: 0! important }
     header div.container.upper div.five.columns { width: 220px !important; padding-left: 0 !important; padding-bottom: 0 !important; float: right; }
       header div.container.lower {padding-bottom: 0 !important;}
     header div#minicart{width: 220px;}
@@ -693,7 +730,7 @@ $heading-color: {{ settings.heading_color }};
     .desktop {display:none !important;}
     .mobile  {display:block !important;}
     div#drawer form div.description div.info {width: 150px !important;}
-    header div.container.upper div.three.columns { width: 160px !important; padding-bottom: 0! important }
+    header div.container.upper div.three.columns { padding-bottom: 0! important }
     header div.container.upper div.five.columns { width: 120px !important; padding-left: 0 !important; padding-bottom: 0 !important; float: right; }
     header div.container.lower {padding-bottom: 0 !important;}
     section#cart form div.row div.description div.info {width: 160px !important;}
@@ -790,8 +827,14 @@ $heading-color: {{ settings.heading_color }};
     max-width: 100%;
   }
   div#main div#page-content {
-    border-top: 1px solid {{ settings.lighter_color }};
-    overflow: hidden;
+/*     border-top: 1px solid {{ settings.lighter_color }}; */
+    
+    @media (min-width: 992px){
+      margin: 0 3em;
+    }
+    @media (min-width: 768px) and (max-width: 992px){
+      margin: 0 1em;
+    }
   }
   .mobile {
     display: none;
@@ -1097,7 +1140,7 @@ $heading-color: {{ settings.heading_color }};
     margin-bottom: 0;
     margin-left: 5px;
     margin-top: -2px;
-    background: {{ settings.background_color }};
+    background: #5A5656;
   }
   header div.container.upper div#minicart {
     text-align: right;
@@ -1120,7 +1163,7 @@ $heading-color: {{ settings.heading_color }};
     background: url({{ 'sprite.png' | asset_url }}) -32px -149px no-repeat;
   }
   header div.container.upper div#minicart a.checkout {
-    padding-left: 20px;
+    padding: 0 20px;
     text-decoration: none;
   }
   header div.container.upper div#minicart a.checkout span.drawer-icon {
@@ -1583,7 +1626,7 @@ $heading-color: {{ settings.heading_color }};
   }
   /* @group Animation Framework */
   section.product-grid div.columns {
-    overflow: hidden;
+    //overflow: hidden;
   }
   .animated {
     -webkit-animation-fill-mode: both;
@@ -1662,7 +1705,7 @@ $heading-color: {{ settings.heading_color }};
   /* @group Product Animations  */
   /* Supports up to 30 products in the grid (10x3) */
   section.product-grid div.columns.columns {
-    overflow: hidden;
+    
   }
   section.product-grid div.columns a#product-1 {
     -webkit-animation-delay: 0.1s;
