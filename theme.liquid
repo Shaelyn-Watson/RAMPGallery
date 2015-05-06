@@ -264,10 +264,21 @@
                               document.getElementById("70984872"),
                              ];
               console.log(hDisplay);
-              document.getElementById("highlighted_item0").innerHTML = hDisplay[0].innerHTML;
-              document.getElementById("highlighted_item1").innerHTML = hDisplay[1].innerHTML;
-              document.getElementById("highlighted_item2").innerHTML = hDisplay[2].innerHTML;
-              document.getElementById("highlighted_item3").innerHTML = hDisplay[3].innerHTML;
+              var unqiue_arr = []
+              while(unqiue_arr.length < 4){
+                var randomnumber=Math.floor(Math.random() * 4);
+                console.log("random num = " + randomnumber);
+                var found=false;
+                for(var i=0;i<3;i++){
+                  if(unqiue_arr[i]==randomnumber){found=true;break}
+                }
+                if(!found)unqiue_arr[unqiue_arr.length]=randomnumber;
+              }
+              console.log("uniquearr = " + unqiue_arr);
+              document.getElementById("highlighted_item0").innerHTML = hDisplay[unqiue_arr[0]].innerHTML;
+              document.getElementById("highlighted_item1").innerHTML = hDisplay[unqiue_arr[1]].innerHTML;
+              document.getElementById("highlighted_item2").innerHTML = hDisplay[unqiue_arr[2]].innerHTML;
+              document.getElementById("highlighted_item3").innerHTML = hDisplay[unqiue_arr[3]].innerHTML;
               console.log("written");
           </script>
            {% endif %}
