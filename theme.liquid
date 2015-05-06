@@ -239,16 +239,37 @@
       <section class="product-grid sixteen columns">
         {% if collection.products.size > 0  %}
           {% if collections.highlighteddisplay.products.size > 0 %}
+            <div id="highlighted_item0"></div>
+          <div id="highlighted_item1"></div>
+          <div id="highlighted_item2"></div>
+          <div id="highlighted_item3"></div>
+          
             {% for product in collections.highlighteddisplay.products %}
               <!--Poster Card -->
-              <div class="three columns">
-                <a href="{{ product.url }}" id="{{ product.id }}" class="animated fadeInUpBig">
+              <div id="{{ product.id }}" style="display:none"><div class="three columns">
+                <a href="{{ product.url }}" class="animated fadeInUpBig">
                   <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
                   <h3>{{ product.title }}</h3>
                   <h4>{{ product.price | money }}</h4>
+                  <h1>{{ product.id }}</h1>
                 </a>
-              </div>
+              </div></div>
             {% endfor %}
+          
+          <script>
+              console.log("Start highlighted display reorder script");
+              var hDisplay = [document.getElementById("69491602"),
+                              document.getElementById("70985012"),
+                              document.getElementById("69294172"),
+                              document.getElementById("70984872"),
+                             ];
+              console.log(hDisplay);
+              document.getElementById("highlighted_item0").innerHTML = hDisplay[0].innerHTML;
+              document.getElementById("highlighted_item1").innerHTML = hDisplay[1].innerHTML;
+              document.getElementById("highlighted_item2").innerHTML = hDisplay[2].innerHTML;
+              document.getElementById("highlighted_item3").innerHTML = hDisplay[3].innerHTML;
+              console.log("written");
+          </script>
            {% endif %}
           {% if collections.frontpage.products.size > 0 %}
             {% for product in collections.frontpage.products %}
