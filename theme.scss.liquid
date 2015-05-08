@@ -795,7 +795,7 @@ $heading-color: {{ settings.heading_color }};
     section#cart form div.row div.description div.info {width: 300px !important;}
     header div.container.lower div#tagline h3 {padding-top: 10px;}
     header div.container.upper nav a {margin-right: 30px !important;}
-    section.product-grid div.columns {min-height: 290px !important;}
+    section.product-grid div.columns {min-height: 180px !important;}
     section#collection-hero {min-height: 300px !important;}
     section#gallery a {width: 127px !important;}
     form input.long, form select.long, form textarea.long, div.notification.long {width: 75% !important;}
@@ -1076,20 +1076,24 @@ $heading-color: {{ settings.heading_color }};
     font-style: normal;
     font-weight: normal;
     padding-top: 5px;
+    height: auto !important;
   }
   div#drawer form div.quantity {
     text-align: center;
+    height: auto !important;
   }
   div#drawer form div.quantity input {
     width: 30px !important;
     text-align: center;
   }
   div#drawer form div.total {
+    display: none;
     padding-top: 5px;
     font-size: 16px;
     font-family: $heading-font;
     font-style: normal;
     font-weight: normal;
+    height: auto !important;
   }
   div#drawer form div.remove {
     padding-top: 5px;
@@ -2211,6 +2215,7 @@ $heading-color: {{ settings.heading_color }};
     padding: 10px 0;
     margin-bottom: 20px;
     font-weight: bold;
+    max-height: 100px !important;
   }
   section#cart form div.headers div.total span {
     padding-left: 20px;
@@ -2274,6 +2279,7 @@ $heading-color: {{ settings.heading_color }};
     font-size: 16px;
   }
   section#cart form div.row div.price {
+    height: auto !important;
     font-size: 16px;
     {% if settings.header_font contains "PT Serif" %}
     font-family: 'PT Serif', serif;
@@ -2306,6 +2312,7 @@ $heading-color: {{ settings.heading_color }};
     text-align: center;
   }
   section#cart form div.row div.total {
+    max-height: 100px !important;
     font-size: 16px;
     {% if settings.header_font contains "PT Serif" %}
     font-family: 'PT Serif', serif;
