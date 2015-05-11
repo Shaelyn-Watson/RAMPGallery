@@ -238,35 +238,47 @@
         <!--START PRODUCT GRID-->
       <section class="product-grid sixteen columns">
         {% if collection.products.size > 0  %}
-          {% if collections.highlighteddisplay.products.size > 0 %}
-            <div id="highlighted_item0"></div>
-          <div id="highlighted_item1"></div>
-          <div id="highlighted_item2"></div>
-          <div id="highlighted_item3"></div>
-          
-            {% for product in collections.highlighteddisplay.products %}
+          {% if collections.frontpage.products.size > 0 %}
+            <div id="highlighted_item0" class="three columns"></div>
+          <div id="highlighted_item1" class="three columns"></div>
+          <div id="highlighted_item2" class="three columns"></div>
+          <div id="highlighted_item3" class="three columns"></div>
+            {% assign counter = "0" %}
+            {% for product in collections.frontpage.products %}
+            {% assign counter = (counter | plus: "1") %}
               <!--Poster Card -->
-              <div id="{{ product.id }}" style="display:none"><div class="three columns">
-                <a href="{{ product.url }}" class="animated fadeInUpBig">
+              <div class="two columns">
+                <a href="{{ product.url }}" id="{{ counter }}" class="animated fadeInUpBig">
                   <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
                   <h3>{{ product.title }}</h3>
                   <h4>{{ product.price | money }}</h4>
+                  <h5>{{ counter }}</h5>
                 </a>
-              </div></div>
+              </div>
             {% endfor %}
-          
           <script>
               console.log("Start highlighted display reorder script");
-              var hDisplay = [document.getElementById("69491602"),
-                              document.getElementById("70985012"),
-                              document.getElementById("69294172"),
-                              document.getElementById("70984872"),
+              var hDisplay = [document.getElementById("0"),
+                              document.getElementById("1"),
+                              document.getElementById("2"),
+                              document.getElementById("3"),
+                              document.getElementById("4"),
+                              document.getElementById("5"),
+                              document.getElementById("6"),
+                              document.getElementById("7"),
+                              document.getElementById("8"),
+                              document.getElementById("9"),
+                              document.getElementById("10"),
+                              document.getElementById("11"),
+                              document.getElementById("12"),
+                              document.getElementById("13"),
+                              document.getElementById("14"),
+                              document.getElementById("15"),
                              ];
               console.log(hDisplay);
               var unqiue_arr = []
-              while(unqiue_arr.length < 4){
-                var randomnumber=Math.floor(Math.random() * 4);
-                console.log("random num = " + randomnumber);
+              while(unqiue_arr.length < 15){
+                var randomnumber=Math.floor(Math.random() * 15);
                 var found=false;
                 for(var i=0;i<3;i++){
                   if(unqiue_arr[i]==randomnumber){found=true;break}
@@ -280,18 +292,6 @@
               document.getElementById("highlighted_item3").innerHTML = hDisplay[unqiue_arr[3]].innerHTML;
               console.log("written");
           </script>
-           {% endif %}
-          {% if collections.frontpage.products.size > 0 %}
-            {% for product in collections.frontpage.products %}
-              <!--Poster Card -->
-              <div class="two columns">
-                <a href="{{ product.url }}" id="{{ product.id }}" class="animated fadeInUpBig">
-                  <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
-                  <h3>{{ product.title }}</h3>
-                  <h4>{{ product.price | money }}</h4>
-                </a>
-              </div>
-            {% endfor %}
           {% endif %}
         {% else %}
           <div>{{content_for_layout}}</div>
