@@ -245,7 +245,6 @@
           <div id="highlighted_item3" class="three columns"></div>
             {% assign counter = "0" %}
             {% for product in collections.frontpage.products %}
-            {% assign counter = (counter | plus: "1") %}
               <!--Poster Card -->
               <div class="two columns">
                 <a href="{{ product.url }}" id="{{ counter }}" class="animated fadeInUpBig">
@@ -254,6 +253,7 @@
                   <h4>{{ product.price | money }}</h4>
                   <h5>{{ counter }}</h5>
                 </a>
+                {% assign counter = (counter | plus: "1") %}
               </div>
             {% endfor %}
           <script>
@@ -273,7 +273,6 @@
                               document.getElementById("12"),
                               document.getElementById("13"),
                               document.getElementById("14"),
-                              document.getElementById("15"),
                              ];
               console.log(hDisplay);
               var unqiue_arr = []
