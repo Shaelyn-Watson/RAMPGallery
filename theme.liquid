@@ -243,41 +243,34 @@
           <div id="highlighted_item1" class="three columns"></div>
           <div id="highlighted_item2" class="three columns"></div>
           <div id="highlighted_item3" class="three columns"></div>
-            {% assign counter = "0" %}
-            {% for product in collections.frontpage.products %}
-              <!--Poster Card -->
-              <div class="two columns">
-                <a href="{{ product.url }}" id="{{ counter }}" class="animated fadeInUpBig">
-                  <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
-                  <h3>{{ product.title }}</h3>
-                  <h4>{{ product.price | money }}</h4>
-                  <h5>{{ counter }}</h5>
-                </a>
-                {% assign counter = (counter | plus: "1") %}
-              </div>
-            {% endfor %}
+          <div id="frontpage_products">
+              {% assign counter = "0" %}
+              {% for product in collections.frontpage.products %}
+                <!--Poster Card -->
+                <div class="two columns">
+                  <a href="{{ product.url }}" id="{{ counter }}" class="animated fadeInUpBig">
+                    <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
+                    <h3>{{ product.title }}</h3>
+                    <h4>{{ product.price | money }}</h4>
+                    <h5>{{ counter }}</h5>
+                  </a>
+                  {% assign counter = (counter | plus: "1") %}
+                </div>
+              {% endfor %}
+          </div>
           <script>
               console.log("Start highlighted display reorder script");
-              var hDisplay = [document.getElementById("0"),
-                              document.getElementById("1"),
-                              document.getElementById("2"),
-                              document.getElementById("3"),
-                              document.getElementById("4"),
-                              document.getElementById("5"),
-                              document.getElementById("6"),
-                              document.getElementById("7"),
-                              document.getElementById("8"),
-                              document.getElementById("9"),
-                              document.getElementById("10"),
-                              document.getElementById("11"),
-                              document.getElementById("12"),
-                              document.getElementById("13"),
-                              document.getElementById("14"),
-                             ];
+              var numProducts = (document.getElementById("frontpage_products").childNodes.length-1)/4;
+              console.log("numProducts = " + numProducts);
+              var hDisplay = [];
+              for (i = 0; i < numProducts; i++){
+                hDisplay[i] = document.getElementById(i);
+                console.log("hDisplay[i] = " + hDisplay[i])
+              }
               console.log(hDisplay);
-              var unqiue_arr = []
-              while(unqiue_arr.length < 15){
-                var randomnumber=Math.floor(Math.random() * 15);
+              var unqiue_arr = [];
+              while(unqiue_arr.length < numProducts){
+                var randomnumber=Math.floor(Math.random() * numProducts);
                 var found=false;
                 for(var i=0;i<3;i++){
                   if(unqiue_arr[i]==randomnumber){found=true;break}
@@ -289,7 +282,7 @@
               document.getElementById("highlighted_item1").innerHTML = hDisplay[unqiue_arr[1]].innerHTML;
               document.getElementById("highlighted_item2").innerHTML = hDisplay[unqiue_arr[2]].innerHTML;
               document.getElementById("highlighted_item3").innerHTML = hDisplay[unqiue_arr[3]].innerHTML;
-              console.log("written");
+              console.log("display reorder script written");
           </script>
           {% endif %}
         {% else %}
