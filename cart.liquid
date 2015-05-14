@@ -53,7 +53,7 @@
 		<br class="clear">
 		<!--START TOTAL-->
 		<div class="twelve columns alpha omega row">
-			<div class="six columns alpha continue-shopping"><a href="/collections/all">{{ 'cart.general.continue_link' | t }}</a></div>
+			<div class="five columns alpha continue-shopping"><a href="/collections/all">{{ 'cart.general.continue_link' | t }}</a></div>
 			{% assign cart_price = cart.total_price | money %}
 			<div class="six columns omega cart total"><h2>{{ 'cart.general.cart_total_html' | t: price: cart_price }}</h2></div>
 		</div>
@@ -61,7 +61,7 @@
 		<br class="clear">
 		<!-- START ACTIONS -->
 		<div class="twelve columns alpha omega">
-			<div class="six columns alpha">
+			<div class="five columns alpha">
 				<textarea id="note" name="note" placeholder="{{ 'cart.general.cart_note_placeholder' | t }}">{{ cart.note }}</textarea>
 			</div>
 			<div class="six columns omega actions">
