@@ -4,13 +4,13 @@
 	{% if cart.item_count > 0 %}
 	<form action="/cart" method="post" name="cartform">
 		<!--START CART CONTENTS-->
-		<div class="twelve columns alpha omega">
+		<div class="fifteen columns alpha omega">
 			<!-- START HEADERS-->
 			<div class="headers clearfix">
 				<div class="eight columns alpha description">
 					{{ 'cart.labels.description' | t }}
 				</div>
-				<div class="one columns price desktop">
+				<div class="four columns price desktop">
 					{{ 'cart.labels.price' | t }}
 				</div>
 				<div class="one columns quantity desktop">
@@ -23,7 +23,7 @@
 			<!-- END HEADERS-->
 			 {% for item in cart.items %}
 			<!-- START ROW-->
-			<div class="row" style="max-height: 250px;">
+			<div class="row" style="max-height: 250px; padding-top: 15px;">
 				<div class="eight columns alpha description">
 					<img src="{{ item | img_url: 'compact' }}" alt="{{ item.title | escape }}" />
 					<div class="info">
@@ -33,17 +33,18 @@
 
 					</div>
 				</div>
-				<div class="one columns price desktop">
+				<div class="four columns price desktop">
 					{{ item.price | money }}
 				</div>
 				<div class="one columns quantity tr">
-					<input type="text" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" /> <p class="mobile">x {{ item.price | money }}</p>
+					<input type="text" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" /> 
+                    <p class="mobile"> {{ item.price | money }}</p>
 				</div>
 				<div class="one columns total desktop">
 					<span>{{ item.line_price | money }} </span>
 				</div>
 				<div class="one column remove omega desktop">
-					<a href="/cart/change?line={{ forloop.index }}&quantity=0">x</a>
+					<a href="/cart/change?line={{ forloop.index }}&quantity=0"></a>
 				</div>
 			</div>
 			<!-- END ROW-->
@@ -52,19 +53,19 @@
 		<!--END CART CONTENTS-->
 		<br class="clear">
 		<!--START TOTAL-->
-		<div class="twelve columns alpha omega row">
+		<div class="fifteen columns alpha omega row">
 			<div class="five columns alpha continue-shopping"><a href="/collections/all">{{ 'cart.general.continue_link' | t }}</a></div>
 			{% assign cart_price = cart.total_price | money %}
-			<div class="six columns omega cart total"><h2>{{ 'cart.general.cart_total_html' | t: price: cart_price }}</h2></div>
+			<div class="seven columns omega cart total"><h2>{{ 'cart.general.cart_total_html' | t: price: cart_price }}</h2></div>
 		</div>
 		<!--END TOTAL-->
 		<br class="clear">
 		<!-- START ACTIONS -->
-		<div class="twelve columns alpha omega">
+		<div class="fifteen columns alpha omega">
 			<div class="five columns alpha">
 				<textarea id="note" name="note" placeholder="{{ 'cart.general.cart_note_placeholder' | t }}">{{ cart.note }}</textarea>
 			</div>
-			<div class="six columns omega actions">
+			<div class="seven columns omega actions">
 		 		<input type="submit" id="update" name="update" value="{{ 'cart.general.update' | t }}" />
 				<input type="submit" id="checkout" name="checkout" value="{{ 'cart.general.check_out' | t }}" />
 				{% if additional_checkout_buttons %}
