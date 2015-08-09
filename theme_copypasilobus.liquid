@@ -238,7 +238,57 @@
     <!--START MAIN-->
     <div id="main" class="twelve columns offset-by-one">
       <div id="page-content">
-      {{ content_for_layout }}
+              <!--START PRODUCT GRID-->
+      <section class="product-grid sixteen columns">
+        {% if collection.title == 'Frontpage' %}
+          <div id="highlighted_item0" class="three columns"></div>
+          <div id="highlighted_item1" class="three columns"></div>
+          <div id="highlighted_item2" class="three columns"></div>
+          <div id="highlighted_item3" class="three columns"></div>
+          <div id="frontpage_products">
+              {% assign counter = "0" %}
+              {% for product in collections.frontpage.products %}
+                <!--Poster Card -->
+                <div class="two columns" id="{{ counter }}">
+                  <a href="{{ product.url }}" class="animated fadeInUpBig">
+                    <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ featured_image.alt | escape }}" class="product">
+                    <h3>{{ product.title }}</h3>
+                    <h4>{{ product.price | money }}</h4>
+                  </a>
+                  {% assign counter = (counter | plus: "1") %}
+                </div>
+              {% endfor %}
+          </div>
+          <script>
+              console.log("Start highlighted display reorder script");
+              var numProducts = (document.getElementById("frontpage_products").childNodes.length-1)/4;
+              console.log("numProducts = " + numProducts);
+              var hDisplay = [];
+              for (i = 0; i < numProducts; i++){
+                hDisplay[i] = document.getElementById(i);
+                console.log("hDisplay[i] = " + hDisplay[i])
+              }
+              console.log(hDisplay);
+              var unqiue_arr = [];
+              while(unqiue_arr.length < numProducts){
+                var randomnumber=Math.floor(Math.random() * numProducts);
+                var found=false;
+                for(var i=0;i<3;i++){
+                  if(unqiue_arr[i]==randomnumber){found=true;break}
+                }
+                if(!found)unqiue_arr[unqiue_arr.length]=randomnumber;
+              }
+              console.log("uniquearr = " + unqiue_arr);
+              document.getElementById("highlighted_item0").innerHTML = hDisplay[unqiue_arr[0]].innerHTML;
+              document.getElementById("highlighted_item1").innerHTML = hDisplay[unqiue_arr[1]].innerHTML;
+              document.getElementById("highlighted_item2").innerHTML = hDisplay[unqiue_arr[2]].innerHTML;
+              document.getElementById("highlighted_item3").innerHTML = hDisplay[unqiue_arr[3]].innerHTML;
+              console.log("display reorder script written");
+          </script>
+        {% else %}
+          <div>{{content_for_layout}}</div>
+        {% endif %}
+      </section>
       <br class="clear">
       </div>
     </div>
@@ -275,7 +325,7 @@ var pInfScrDelay = 100;
 function pInfScrExecute() {
   if($(document).height() - 800 < ($(document).scrollTop() + $(window).height())) {
     var loadingImage;
-    pInfScrNode = $('.more').last();	
+    pInfScrNode = $('.more').last();  
     pInfScrURL = $('.more a').last().attr("href");
     if(!pInfScrLoading && pInfScrNode.length > 0 && pInfScrNode.css('display') != 'none') {
       $.ajax({
@@ -292,7 +342,7 @@ function pInfScrExecute() {
           pInfScrNode.next().remove();
           var filteredData = $(data).find(".scroll");
           filteredData.insertBefore( $("#product-list-foot") );
-          loadingImage.remove();					
+          loadingImage.remove();          
           pInfScrLoading = false;
         }, 
         dataType: "html"
